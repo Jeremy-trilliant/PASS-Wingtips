@@ -4,10 +4,7 @@
     name: .NET
     
     on:
-      push:
-        branches: [ "main" ]
-      pull_request:
-        branches: [ "main" ]
+      workflow_dispatch:
     
     jobs:
       build:
@@ -21,8 +18,9 @@
           with:
             dotnet-version: 8.0.x
         - name: Restore dependencies
-          run: dotnet restore
+          run: dotnet restore PASS-WingTips/Wingtips/DatabaseProjectWingtips.sqlproj
         - name: Build
-          run: dotnet build --no-restore
-        - name: Test
-          run: dotnet test --no-build --verbosity normal
+          run: dotnet build PASS-WingTips/Wingtips/DatabaseProjectWingtips.sqlproj --no-restore
+        - name: Publish SQL project
+          run: | 
+            sqlpackage /Action:Publish /SourceFile:Wingtips/bin/Debug/Wingtips.dacpac /TargetConnectionString:${{ secrets.SQL_CONNECTION_STRING }}

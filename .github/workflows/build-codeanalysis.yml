@@ -1,16 +1,16 @@
-name: Build SQL project with code analysis
-    
-    on:
+  name: Build SQL project with code analysis
+
+  on:
       push:
         branches: [ "main" ]
         paths:
-          - 'Wingtips/**'
+          - 'PASS-Wingtips/**'
       pull_request:
         branches: [ "main" ]
         paths:
-          - 'Wingtips/**'
-    
-    jobs:
+          - 'PASS-Wingtips/**'
+
+  jobs:
       build:
         runs-on: ubuntu-22.04
     

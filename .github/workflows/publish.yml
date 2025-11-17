@@ -18,9 +18,9 @@
           with:
             dotnet-version: 8.0.x
         - name: Restore dependencies
-          run: dotnet restore PASS-WingTips/Wingtips/DatabaseProjectWingtips.sqlproj
+          run: dotnet restore PASS-WingTips/Wingtips/DatabaseProjectWingtips/DatabaseProjectWingtips.sqlproj
         - name: Build
-          run: dotnet build PASS-WingTips/Wingtips/DatabaseProjectWingtips.sqlproj --no-restore
+          run: dotnet build PASS-WingTips/Wingtips/DatabaseProjectWingtips/DatabaseProjectWingtips.sqlproj --no-restore
         - name: Publish SQL project
           run: | 
             sqlpackage /Action:Publish /SourceFile:Wingtips/bin/Debug/Wingtips.dacpac /TargetConnectionString:${{ secrets.SQL_CONNECTION_STRING }}

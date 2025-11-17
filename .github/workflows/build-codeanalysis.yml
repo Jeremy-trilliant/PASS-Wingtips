@@ -4,11 +4,11 @@ name: Build SQL project with code analysis
       push:
         branches: [ "main" ]
         paths:
-          - 'Wingtips/**'
+          - 'PASS-Wingtips/**'
       pull_request:
         branches: [ "main" ]
         paths:
-          - 'Wingtips/**'
+          - 'PASS-Wingtips/**'
     
     jobs:
       build:
@@ -21,4 +21,4 @@ name: Build SQL project with code analysis
           with:
             dotnet-version: 8.0.x
         - name: Build
-          run: dotnet build Wingtips/Wingtips.sqlproj /p:RunSqlCodeAnalysis=true
+          run: dotnet build PASS-Wingtips/Wingtips.sqlproj /p:RunSqlCodeAnalysis=true

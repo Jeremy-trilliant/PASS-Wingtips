@@ -1,14 +1,14 @@
-name: Build SQL project with code analysis
+    name: Build SQL project with code analysis
     
     on:
       push:
         branches: [ "main" ]
         paths:
-          - 'Wingtips/**'
+          - 'PASS-Wingtips/**'
       pull_request:
         branches: [ "main" ]
         paths:
-          - 'Wingtips/**'
+          - 'PASS-Wingtips/**'
     
     jobs:
       build:
